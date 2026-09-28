@@ -27,18 +27,20 @@ los conceptos de Gestión de Configuración de Software (SCM).
 ## Estructura
 
 ```
-Bibliografía/                  Material de referencia por tema
-Presentaciones de Clase/       Presentaciones de la cátedra
+Bibliografía/                  Material de referencia por unidad
+Presentaciones de Clase/       Presentaciones de la cátedra por unidad
 Trabajos Prácticos/            TP grupales y trabajos de investigación
-Material de estudio/           Ejercicios resueltos, notas de clase y resúmenes
-Gestión de Configuración/      Plan SCM y documentación administrativa
+Material de Estudio/           Ejercicios resueltos, notas de clase y resúmenes
+Documentación de la Materia/   Presentación, planificación, cronograma y clases grabadas
+Plan_SCM.md                    Plan de Gestión de Configuración
 ```
 
 ## Gestión de Configuración
 
 La definición completa de los ítems de configuración, sus reglas de nombrado y el criterio de
-línea base está en **[`Gestión de Configuración/Plan_SCM.md`](Gestión%20de%20Configuración/Plan_SCM.md)**.
+línea base está en **[`Plan_SCM.md`](Plan_SCM.md)**.
 
+El plan fue corregido en base a las devoluciones del TP4.
 
 ## Control de versiones
 

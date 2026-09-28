@@ -3,6 +3,8 @@
 **Plan de Gestión de Configuración de Software (SCM)**
 Repositorio de Ingeniería y Calidad de Software
 
+> **Versión corregida.** Este plan fue revisado en base a las devoluciones recibidas en la corrección del TP4 – SCM.
+
 ---
 
 ## Integrantes
@@ -36,6 +38,7 @@ Decisiones tomadas por el grupo y aplicadas de forma consistente en todo el repo
 - **Fechas:** formato **ISO `AAAA-MM-DD`** (ej. `2026-09-01`) para que ordenen cronológicamente.
 - **Separador en nombres de archivo:** guion bajo (`_`).
 - **Motor de control de versiones:** Git, repositorio de acceso público.
+- **Carpetas con un único archivo:** se evitan. Un ítem que no justifica una carpeta propia se ubica en la raíz del repositorio (ej. este Plan SCM).
 
 ---
 
@@ -56,19 +59,14 @@ ISW_2026_4K3_GRUPO_5/
 │   └── Trabajos de Investigación Grupales/
 │       └── TIG[N]/
 │
-├── Material de estudio/
+├── Material de Estudio/
 │   ├── Ejercicios prácticos resueltos/
 │   ├── Notas de Clase/
 │   │   ├── Teóricos/
 │   │   └── Prácticos/
 │   └── Resúmenes/
 │
-├── Gestión de Configuración/           (documentación de SCM e ítems administrativos)
-│   ├── Plan_SCM.md
-│   ├── Cronograma_2026_2doCuatri.txt
-│   └── Link_Clases_Grabadas.txt
-│
-└── README.md                           (breve descripción del repo y enlace a este Plan)
+└── Documentación de la Materia/
 ```
 
 ---
@@ -81,19 +79,21 @@ Criterio de tipo:
 
 | Nombre del ítem | Tipo | Regla de nombrado | Ubicación física |
 |---|---|---|---|
+| Plan SCM | Producto | `Plan_SCM.md` | `/` (raíz del repositorio) |
+| Presentación de la Materia | Recurso | `Presentacion_Materia_2026.pdf` | `/Documentación de la Materia/` |
+| Planificación de la Materia | Recurso | `Planificacion_2026.pdf` | `/Documentación de la Materia/` |
+| Cronograma | Recurso | `Cronograma_2026_2doCuatri.txt` | `/Documentación de la Materia/` |
+| Clases Grabadas | Recurso | `Link_Clases_Grabadas.txt` | `/Documentación de la Materia/` |
 | Bibliografía | Recurso | `[Título-del-libro]_[Autor].pdf` | `/Bibliografía/Unidad_[U]/` |
 | Presentaciones de Clase | Recurso | `[M]_[Tema].pdf` | `/Presentaciones de Clase/Unidad_[U]/` |
-| Trabajos Prácticos Grupales | Producto | `TP[N]_[Tema].[EXT]` | `/Trabajos Prácticos/Trabajos Prácticos Grupales/TP[N]/` |
-| Trabajos de Investigación Grupales | Producto | `TIG[N]_[Tema].[EXT]` | `/Trabajos Prácticos/Trabajos de Investigación Grupales/TIG[N]/` |
 | Consigna de TP | Recurso | `Consigna_TP[N].pdf` | `/Trabajos Prácticos/Trabajos Prácticos Grupales/TP[N]/` |
+| Trabajos Prácticos Grupales | Producto | `TP[N]_[Tema].[EXT]` | `/Trabajos Prácticos/Trabajos Prácticos Grupales/TP[N]/` |
 | Lineamientos para TIG | Recurso | `Lineamientos_TIG[N].pdf` | `/Trabajos Prácticos/Trabajos de Investigación Grupales/TIG[N]/` |
-| Ejercicios Prácticos resueltos | Producto | `[Tema]_Caso[I]_[Apellido].[EXT]` | `/Material de estudio/Ejercicios prácticos resueltos/` |
-| Guía de Ejercicios Prácticos | Recurso | `Guía_Ejercicios.pdf` | `/Material de estudio/Ejercicios prácticos resueltos/` |
-| Notas de Clase | Producto | `[Tema]_[Fecha]_[Apellido].pdf` | `/Material de estudio/Notas de Clase/{Teóricos\|Prácticos}/` |
-| Resúmenes | Producto | `Resumen_Parcial[J]_[Apellido].pdf` | `/Material de estudio/Resúmenes/` |
-| Cronograma | Recurso | `Cronograma_2026_2doCuatri.txt` | `/Gestión de Configuración/` |
-| Clases Grabadas | Recurso | `Link_Clases_Grabadas.txt` | `/Gestión de Configuración/` |
-| Plan SCM | Producto | `Plan_SCM.md` | `/Gestión de Configuración/` |
+| Trabajos de Investigación Grupales | Producto | `TIG[N]_[Tema].[EXT]` | `/Trabajos Prácticos/Trabajos de Investigación Grupales/TIG[N]/` |
+| Guía de Ejercicios Prácticos | Recurso | `Guía_Ejercicios.pdf` | `/Material de Estudio/Ejercicios prácticos resueltos/` |
+| Ejercicios Prácticos resueltos | Producto | `[Tema]_Caso[I]_[Apellido].[EXT]` | `/Material de Estudio/Ejercicios prácticos resueltos/` |
+| Notas de Clase | Producto | `[Tema]_[Fecha]_[Apellido].pdf` | `/Material de Estudio/Notas de Clase/{Teóricos\|Prácticos}/` |
+| Resúmenes | Producto | `Resumen_Parcial[J]_[Apellido].pdf` | `/Material de Estudio/Resúmenes/` |
 
 ---
 
@@ -109,7 +109,7 @@ Criterio de tipo:
 | Apellido | Apellido del propietario del archivo. |
 | Fecha | Fecha de la clase, formato ISO `AAAA-MM-DD`. |
 | J | Número de parcial. |
-| U | Número de unidad. |
+| U | Número de unidad (dos dígitos). |
 | TP | Trabajo Práctico. |
 | TIG | Trabajo de Investigación Grupal. |
 
@@ -129,13 +129,20 @@ Cada línea base se **marca efectivamente en el repositorio** mediante un *tag* 
 LB_[hito]_[AAAA-MM-DD]
 ```
 
-Ejemplo: `LB_TP04_2026-09-01`. El tag deja el estado del repositorio como un punto recuperable e inmutable en el tiempo.
-
-**Primera línea base de este entregable:** se marca sobre el estado del repositorio correspondiente a la entrega del **TP4 – SCM**.
+Ejemplo: `LB_TP04_2026-09-02`. El tag deja el estado del repositorio como un punto recuperable e inmutable en el tiempo.
 
 Comandos de referencia:
 
 ```bash
-git tag -a LB_TP04_2026-09-01 -m "Línea base: entrega TP4 - SCM"
-git push origin LB_TP04_2026-09-01
+git tag -a LB_TP04_2026-09-02 -m "Línea base: entrega TP4 - SCM"
+git push origin LB_TP04_2026-09-02
 ```
+
+---
+
+## Historial de cambios
+
+| Versión | Descripción |
+|---|---|
+| 1.0 | Versión inicial del Plan SCM, entregada con el TP4. |
+| 1.1 | Revisión del plan y de la estructura del repositorio para corregir las observaciones recibidas en la devolución del TP4. |
