@@ -84,17 +84,17 @@ describe('CompraEntradasService', () => {
   }
 
   describe('usuario y correo', () => {
-    it('PU-36: un visitante registrado y logueado puede comprar', async () => {
+    it('CP-36: un visitante registrado y logueado puede comprar', async () => {
       await expect(servicio.iniciarCompra(USUARIO, solicitud())).resolves.toBeDefined();
     });
 
-    it('PU-37: falla si no hay una sesión iniciada', async () => {
+    it('CP-37: falla si no hay una sesión iniciada', async () => {
       await expect(servicio.iniciarCompra(null, solicitud())).rejects.toThrow(
         'Debés iniciar sesión para comprar entradas',
       );
     });
 
-    it('PU-38: falla con un correo inválido y no registra ninguna operación', async () => {
+    it('CP-38: falla con un correo inválido y no registra ninguna operación', async () => {
       const usuario = { ...USUARIO, email: 'visitante.ejemplo.com' };
       await expect(servicio.iniciarCompra(usuario, solicitud({ formaPago: 'EFECTIVO' }))).rejects.toThrow(
         'No se puede completar la compra porque el correo electrónico asociado es inválido',
@@ -104,7 +104,7 @@ describe('CompraEntradasService', () => {
     });
   });
 
-  it('PU-38: con tarjeta y correo inválido tampoco redirige a Mercado Pago', async () => {
+  it('CP-38: con tarjeta y correo inválido tampoco redirige a Mercado Pago', async () => {
     const usuario = { ...USUARIO, email: 'visitante.ejemplo.com' };
     await expect(servicio.iniciarCompra(usuario, solicitud({ formaPago: 'TARJETA' }))).rejects.toThrow(/correo/);
     expect(await repositorio.listar()).toHaveLength(0);
@@ -122,23 +122,23 @@ describe('CompraEntradasService', () => {
       await expect(comprarEnEfectivo(10)).resolves.toBeDefined();
     });
 
-    it('PU-06: permite 10 entradas para una fecha sin compras anteriores', async () => {
+    it('CP-06: permite 10 entradas para una fecha sin compras anteriores', async () => {
       await expect(comprarEnEfectivo(10)).resolves.toBeDefined();
     });
 
-    it('PU-08: con 7 entradas previas permite comprar 3 más', async () => {
+    it('CP-08: con 7 entradas previas permite comprar 3 más', async () => {
       await comprarEnEfectivo(7);
       await expect(comprarEnEfectivo(3)).resolves.toBeDefined();
     });
 
-    it('PU-09: con 7 entradas previas no permite comprar 4 más', async () => {
+    it('CP-09: con 7 entradas previas no permite comprar 4 más', async () => {
       await comprarEnEfectivo(7);
       await expect(comprarEnEfectivo(4)).rejects.toThrow(
         'No podés superar las 10 entradas para la misma fecha. Ya tenés 7 entradas para ese día',
       );
     });
 
-    it('PU-10: las entradas de otra fecha no cuentan para el límite', async () => {
+    it('CP-10: las entradas de otra fecha no cuentan para el límite', async () => {
       await comprarEnEfectivo(10, '2026-10-17');
       await expect(comprarEnEfectivo(1, '2026-10-18')).resolves.toBeDefined();
     });
@@ -169,19 +169,19 @@ describe('CompraEntradasService', () => {
   });
 
   describe('validaciones de la solicitud', () => {
-    it('valida la fecha de visita (PU-19, lunes)', async () => {
+    it('valida la fecha de visita (CP-19, lunes)', async () => {
       await expect(servicio.iniciarCompra(USUARIO, solicitud({ fechaVisita: '2026-10-19' }))).rejects.toThrow(
         /cerrado/,
       );
     });
 
-    it('valida la cantidad (PU-07)', async () => {
+    it('valida la cantidad (CP-07)', async () => {
       await expect(
         servicio.iniciarCompra(USUARIO, solicitud({ cantidad: 11, visitantes: visitantesAdultos(11) })),
       ).rejects.toThrow(/más de 10 entradas/);
     });
 
-    it('valida las edades (PU-23)', async () => {
+    it('valida las edades (CP-23)', async () => {
       await expect(servicio.iniciarCompra(USUARIO, solicitud({ cantidad: 3 }))).rejects.toThrow(
         /edad de cada visitante/,
       );
@@ -194,7 +194,7 @@ describe('CompraEntradasService', () => {
       expect(() => servicio.cotizar(undefined as never)).toThrow('La fecha de visita es obligatoria');
     });
 
-    it('PU-39: falla si no se selecciona una forma de pago', async () => {
+    it('CP-39: falla si no se selecciona una forma de pago', async () => {
       await expect(servicio.iniciarCompra(USUARIO, solicitud({ formaPago: undefined }))).rejects.toThrow(
         'Se debe seleccionar una forma de pago: tarjeta o efectivo',
       );
@@ -211,14 +211,14 @@ describe('CompraEntradasService', () => {
   });
 
   describe('pago con tarjeta mediante Mercado Pago', () => {
-    it('PU-40: redirige a Mercado Pago y deja la compra pendiente', async () => {
+    it('CP-40: redirige a Mercado Pago y deja la compra pendiente', async () => {
       const resultado = await servicio.iniciarCompra(USUARIO, solicitud());
       expect(resultado.urlPago).toBe(`https://mercadopago.test/checkout/${resultado.compra.id}`);
       expect(resultado.compra.estado).toBe('PENDIENTE_MERCADO_PAGO');
       expect(email.enviados).toHaveLength(0);
     });
 
-    it('PU-41: con el pago aprobado confirma la compra y genera las entradas', async () => {
+    it('CP-41: con el pago aprobado confirma la compra y genera las entradas', async () => {
       const { compra } = await servicio.iniciarCompra(USUARIO, solicitud());
       const resultado = await servicio.registrarResultadoPago(compra.id, true);
       expect(resultado.compra.estado).toBe('CONFIRMADA');
@@ -226,7 +226,7 @@ describe('CompraEntradasService', () => {
       expect(new Set(resultado.compra.entradas.map((e) => e.codigo)).size).toBe(2);
     });
 
-    it('PU-42 / PU-47: con el pago rechazado no confirma, no genera entradas ni envía correo', async () => {
+    it('CP-42 / CP-47: con el pago rechazado no confirma, no genera entradas ni envía correo', async () => {
       const { compra } = await servicio.iniciarCompra(USUARIO, solicitud());
       const resultado = await servicio.registrarResultadoPago(compra.id, false);
       expect(resultado.compra.estado).toBe('RECHAZADA');
@@ -235,7 +235,7 @@ describe('CompraEntradasService', () => {
       expect(email.enviados).toHaveLength(0);
     });
 
-    it('PU-46: envía el correo de confirmación luego de un pago aprobado', async () => {
+    it('CP-46: envía el correo de confirmación luego de un pago aprobado', async () => {
       const { compra } = await servicio.iniciarCompra(USUARIO, solicitud());
       await servicio.registrarResultadoPago(compra.id, true);
       expect(email.enviados).toHaveLength(1);
@@ -291,7 +291,7 @@ describe('CompraEntradasService', () => {
       return compra;
     }
 
-    it('PU-41: confirma la compra si Mercado Pago informa el pago aprobado', async () => {
+    it('CP-41: confirma la compra si Mercado Pago informa el pago aprobado', async () => {
       await pagarConTarjeta('APROBADO');
       const resultado = await servicio.confirmarPagoMercadoPago(USUARIO, '123');
       expect(resultado.compra.estado).toBe('CONFIRMADA');
@@ -299,7 +299,7 @@ describe('CompraEntradasService', () => {
       expect(email.enviados).toHaveLength(1);
     });
 
-    it('PU-42: rechaza la compra si Mercado Pago informa el pago rechazado', async () => {
+    it('CP-42: rechaza la compra si Mercado Pago informa el pago rechazado', async () => {
       await pagarConTarjeta('RECHAZADO');
       const resultado = await servicio.confirmarPagoMercadoPago(USUARIO, '123');
       expect(resultado.compra.estado).toBe('RECHAZADA');
@@ -328,7 +328,7 @@ describe('CompraEntradasService', () => {
       await expect(servicio.confirmarPagoMercadoPago(USUARIO, '999')).rejects.toThrow('El pago no existe');
     });
 
-    it('PU-37: falla si no hay una sesión iniciada', async () => {
+    it('CP-37: falla si no hay una sesión iniciada', async () => {
       await pagarConTarjeta('APROBADO');
       await expect(servicio.confirmarPagoMercadoPago(null, '123')).rejects.toThrow(
         'Debés iniciar sesión para consultar tus compras',
@@ -369,14 +369,14 @@ describe('CompraEntradasService', () => {
   });
 
   describe('pago en efectivo', () => {
-    it('PU-43 / PU-44: registra la operación pendiente de pago en boletería sin redirigir', async () => {
+    it('CP-43 / CP-44: registra la operación pendiente de pago en boletería sin redirigir', async () => {
       const resultado = await servicio.iniciarCompra(USUARIO, solicitud({ formaPago: 'EFECTIVO' }));
       expect(resultado.compra.estado).toBe('PENDIENTE_PAGO_BOLETERIA');
       expect(resultado.compra.abonada).toBe(false);
       expect(resultado.urlPago).toBeUndefined();
     });
 
-    it('PU-45: envía un correo indicando que el pago está pendiente', async () => {
+    it('CP-45: envía un correo indicando que el pago está pendiente', async () => {
       await servicio.iniciarCompra(USUARIO, solicitud({ formaPago: 'EFECTIVO' }));
       expect(email.enviados).toHaveLength(1);
       expect(email.enviados[0].asunto).toBe('Entradas registradas - Pago pendiente en boletería');
@@ -385,7 +385,7 @@ describe('CompraEntradasService', () => {
   });
 
   describe('resultado final', () => {
-    it('PU-48: informa la cantidad de entradas y la fecha de visita', async () => {
+    it('CP-48: informa la cantidad de entradas y la fecha de visita', async () => {
       const resultado = await servicio.iniciarCompra(USUARIO, solicitud({ formaPago: 'EFECTIVO' }));
       expect(resultado.mensaje).toBe(
         'Registraste 2 entradas para el 17/10/2026. El pago se encuentra pendiente en boletería',
@@ -397,7 +397,7 @@ describe('CompraEntradasService', () => {
       expect(resultado.mensaje).toMatch(/^Registraste 1 entrada para el 17\/10\/2026/);
     });
 
-    it('PU-49: flujo completo con tarjeta', async () => {
+    it('CP-49: flujo completo con tarjeta', async () => {
       const inicio = await servicio.iniciarCompra(USUARIO, solicitud());
       expect(inicio.compra.total).toBe(15000);
       expect(inicio.urlPago).toBeDefined();
@@ -411,7 +411,7 @@ describe('CompraEntradasService', () => {
       expect(email.enviados[0].cuerpo).toContain('Total: $15.000');
     });
 
-    it('PU-50: flujo completo con efectivo', async () => {
+    it('CP-50: flujo completo con efectivo', async () => {
       const resultado = await servicio.iniciarCompra(USUARIO, solicitud({ formaPago: 'EFECTIVO' }));
       expect(resultado.compra.total).toBe(15000);
       expect(resultado.compra.estado).toBe('PENDIENTE_PAGO_BOLETERIA');

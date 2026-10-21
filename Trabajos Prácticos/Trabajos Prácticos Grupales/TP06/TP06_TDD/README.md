@@ -9,8 +9,6 @@ ISW 2026 · 4K3 · Grupo 5. Implementación de la US **Comprar entradas** con TD
 - `docs/decisiones-de-diseno.md`: decisiones originales y bitácora del ciclo TDD.
 - `docs/auditoria-ux-ui.md`: auditoría, cambios, verificaciones y límites del rediseño.
 - `frontend/PRODUCT.md`, `frontend/DESIGN.md` y `frontend/.impeccable/design.json`: contexto y sistema de diseño.
-- `docs/EcoHarmony_Informe_TDD_Grupo_5.docx`: informe formal del TP (documento de decisiones de diseño pedido por la consigna).
-- `docs/TP_TDD_Grupo5_Pruebas_Compra_Entradas.docx`: documento de pruebas del grupo (Test List PU-01 a PU-50).
 
 ## Requisitos
 

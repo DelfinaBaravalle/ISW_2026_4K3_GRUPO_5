@@ -25,7 +25,7 @@ describe('PantallaMercadoPago', () => {
     expect(screen.getByText(/2 entradas · Orden #000001/)).toBeInTheDocument();
   });
 
-  it('PU-41: al pagar informa un pago aprobado', async () => {
+  it('CP-41: al pagar informa un pago aprobado', async () => {
     const onFinalizar = vi.fn();
     render(<PantallaMercadoPago compraId="000001" onFinalizar={onFinalizar} />);
     await userEvent.click(await screen.findByRole('button', { name: 'Pagar' }));
@@ -33,7 +33,7 @@ describe('PantallaMercadoPago', () => {
     await waitFor(() => expect(onFinalizar).toHaveBeenCalled());
   });
 
-  it('PU-42: puede simular un pago rechazado', async () => {
+  it('CP-42: puede simular un pago rechazado', async () => {
     render(<PantallaMercadoPago compraId="000001" onFinalizar={() => {}} />);
     await userEvent.click(await screen.findByRole('button', { name: 'Simular pago rechazado' }));
     expect(mockApi.resultadoMercadoPago).toHaveBeenCalledWith('000001', false);

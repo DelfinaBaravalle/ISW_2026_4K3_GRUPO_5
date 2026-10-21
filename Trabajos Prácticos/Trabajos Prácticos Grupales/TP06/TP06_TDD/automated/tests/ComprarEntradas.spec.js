@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('PU01 - Sin indicar cantidad', async ({ page }) => {
+test('CP01 - Sin indicar cantidad', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: '22 de octubre de 2026,' }).click();
@@ -15,7 +15,7 @@ test('PU01 - Sin indicar cantidad', async ({ page }) => {
 
 });
 
-test('PU02 - Con cantidad cero', async ({ page }) => {
+test('CP02 - Con cantidad cero', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: '22 de octubre de 2026,' }).click();
@@ -30,7 +30,7 @@ test('PU02 - Con cantidad cero', async ({ page }) => {
 
 });
 
-test('PU03 - Con cantidad negativa', async ({ page }) => {
+test('CP03 - Con cantidad negativa', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: '22 de octubre de 2026,' }).click();
@@ -45,7 +45,7 @@ test('PU03 - Con cantidad negativa', async ({ page }) => {
 
 });
 
-test('PU04 - Con cantidad decimal', async ({ page }) => {
+test('CP04 - Con cantidad decimal', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: '22 de octubre de 2026,' }).click();
@@ -60,7 +60,7 @@ test('PU04 - Con cantidad decimal', async ({ page }) => {
 
 });
 
-test('PU05/26 - Con cantidad uno y regular', async ({ page }) => {
+test('CP05/26 - Con cantidad uno y regular', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: '22 de octubre de 2026,' }).click();
@@ -86,7 +86,7 @@ test('PU05/26 - Con cantidad uno y regular', async ({ page }) => {
 
 });
 
-test('PU06 - Con cantidad diez', async ({ page }) => {
+test('CP06 - Con cantidad diez', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: '31 de octubre de 2026,' }).click();
@@ -118,7 +118,7 @@ test('PU06 - Con cantidad diez', async ({ page }) => {
 
 });
 
-test('PU07 - Con cantidad once', async ({ page }) => {
+test('CP07 - Con cantidad once', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
     await page.getByRole('button', { name: '23 de octubre de 2026,' }).click();
@@ -135,7 +135,7 @@ test('PU07 - Con cantidad once', async ({ page }) => {
 
 });
 
-test('PU08/22 - Primero 7 y luego 3', async ({ page }) => {
+test('CP08/22 - Primero 7 y luego 3', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: '28 de octubre de 2026,' }).click();
@@ -191,7 +191,7 @@ test('PU08/22 - Primero 7 y luego 3', async ({ page }) => {
   await expect(page.getByText('El pago se encuentra pendiente en boletería')).toBeVisible();
 });
 
-test('PU09 - Primero 7 y luego 4', async ({ page }) => {
+test('CP09 - Primero 7 y luego 4', async ({ page }) => {
     await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: '29 de octubre de 2026,' }).click();
@@ -247,7 +247,7 @@ test('PU09 - Primero 7 y luego 4', async ({ page }) => {
 
 });
 
-test('PU10/16 - Primero 10 de un día y luego 10 de otro día', async ({ page }) => {
+test('CP10/16 - Primero 10 de un día y luego 10 de otro día', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: 'Mes siguiente' }).click();
@@ -307,7 +307,7 @@ test('PU10/16 - Primero 10 de un día y luego 10 de otro día', async ({ page })
   await expect(page.getByText('El pago se encuentra pendiente en boletería')).toBeVisible();
 });
 
-test('PU11 - Sin ingresar fecha', async ({ page }) => {
+test('CP11 - Sin ingresar fecha', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   // Se quita la cantidad de entradas y se deja en blanco para que aparezca el mensaje de error
@@ -328,16 +328,16 @@ test('PU11 - Sin ingresar fecha', async ({ page }) => {
 
 });
 
-// PU12-14 - No automatizables, ya que dependen del horario
+// CP12-14 - No automatizables, ya que dependen del horario
 
-test('PU15 - Con fecha anterior', async ({ page }) => {
+test('CP15 - Con fecha anterior', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await expect(page.getByRole('button', { name: '10 de octubre de 2026,' })).toBeDisabled();
 
 });
 
-test('PU17 - Un mes siguiente', async ({ page }) => {
+test('CP17 - Un mes siguiente', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: 'Mes siguiente' }).click();
@@ -369,7 +369,7 @@ test('PU17 - Un mes siguiente', async ({ page }) => {
 
 });
 
-test('PU18 - Mas de un mes siguiente', async ({ page }) => {
+test('CP18 - Mas de un mes siguiente', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: 'Mes siguiente' }).click();
@@ -380,16 +380,16 @@ test('PU18 - Mas de un mes siguiente', async ({ page }) => {
 
 });
 
-test('PU19 - Un día Lunes', async ({ page }) => {
+test('CP19 - Un día Lunes', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await expect(page.getByRole('button', { name: '26 de octubre de 2026,' })).toBeDisabled();
 
 });
 
-// PU20/21 - No automatizables, se pasan de la programación de un mes
+// CP20/21 - No automatizables, se pasan de la programación de un mes
 
-test('PU23 - Uno sin edad', async ({ page }) => {
+test('CP23 - Uno sin edad', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: '23 de octubre de 2026,' }).click();
@@ -418,7 +418,7 @@ test('PU23 - Uno sin edad', async ({ page }) => {
 
 });
 
-test('PU24 - Con edad negativa', async ({ page }) => {
+test('CP24 - Con edad negativa', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: '28 de octubre de 2026,' }).click();
@@ -440,7 +440,7 @@ test('PU24 - Con edad negativa', async ({ page }) => {
 
 });
 
-test('PU25 - Sin seleccionar pase', async ({ page }) => {
+test('CP25 - Sin seleccionar pase', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: '28 de octubre de 2026,' }).click();
@@ -458,7 +458,7 @@ test('PU25 - Sin seleccionar pase', async ({ page }) => {
 
 });
 
-test('PU27 - Uno pase vip sin descuento', async ({ page }) => {
+test('CP27 - Uno pase vip sin descuento', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: '22 de octubre de 2026,' }).click();
@@ -482,7 +482,7 @@ test('PU27 - Uno pase vip sin descuento', async ({ page }) => {
 
 });
 
-test('PU28 - Regular con edad tres', async ({ page }) => {
+test('CP28 - Regular con edad tres', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: '22 de octubre de 2026,' }).click();
@@ -506,7 +506,7 @@ test('PU28 - Regular con edad tres', async ({ page }) => {
 
 });
 
-test('PU29 - Regular con edad cuatro', async ({ page }) => {
+test('CP29 - Regular con edad cuatro', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: '22 de octubre de 2026,' }).click();
@@ -530,7 +530,7 @@ test('PU29 - Regular con edad cuatro', async ({ page }) => {
 
 });
 
-test('PU30 - Regular con edad quince', async ({ page }) => {
+test('CP30 - Regular con edad quince', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: '22 de octubre de 2026,' }).click();
@@ -554,7 +554,7 @@ test('PU30 - Regular con edad quince', async ({ page }) => {
 
 });
 
-test('PU31 - Regular con edad dieciseis', async ({ page }) => {
+test('CP31 - Regular con edad dieciseis', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: '22 de octubre de 2026,' }).click();
@@ -578,7 +578,7 @@ test('PU31 - Regular con edad dieciseis', async ({ page }) => {
 
 });
 
-test('PU32 - Regular con edad cincuenta y nueve', async ({ page }) => {
+test('CP32 - Regular con edad cincuenta y nueve', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: '22 de octubre de 2026,' }).click();
@@ -602,7 +602,7 @@ test('PU32 - Regular con edad cincuenta y nueve', async ({ page }) => {
 
 });
 
-test('PU33 - Regular con edad sesenta', async ({ page }) => {
+test('CP33 - Regular con edad sesenta', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: '22 de octubre de 2026,' }).click();
@@ -626,7 +626,7 @@ test('PU33 - Regular con edad sesenta', async ({ page }) => {
 
 });
 
-test('PU34 - VIP con descuentos', async ({ page }) => {
+test('CP34 - VIP con descuentos', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: '24 de octubre de 2026,' }).click();
@@ -755,7 +755,7 @@ test('PU34 - VIP con descuentos', async ({ page }) => {
 
 });
 
-test('PU35 - Con distintas edades y pases', async ({ page }) => {
+test('CP35 - Con distintas edades y pases', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   
   await page.getByRole('button', { name: '23 de octubre de 2026,' }).click();
@@ -800,5 +800,5 @@ test('PU35 - Con distintas edades y pases', async ({ page }) => {
 
 });
 
-// PU36-38 - No automatizable, ya que es control de sesiones y correo
+// CP36-38 - No automatizable, ya que es control de sesiones y correo
 

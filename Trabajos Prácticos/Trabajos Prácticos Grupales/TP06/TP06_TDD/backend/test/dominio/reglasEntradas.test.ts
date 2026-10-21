@@ -2,19 +2,19 @@ import { describe, expect, it } from 'vitest';
 import { validarCantidad, validarVisitantes } from '../../src/dominio/reglasEntradas';
 
 describe('validarCantidad', () => {
-  it('PU-01: falla si no se indica la cantidad', () => {
+  it('CP-01: falla si no se indica la cantidad', () => {
     expect(() => validarCantidad(undefined)).toThrow('La cantidad de entradas es obligatoria');
   });
 
-  it('PU-02: falla si la cantidad es 0', () => {
+  it('CP-02: falla si la cantidad es 0', () => {
     expect(() => validarCantidad(0)).toThrow('La cantidad de entradas debe ser mayor a cero');
   });
 
-  it('PU-03: falla si la cantidad es negativa', () => {
+  it('CP-03: falla si la cantidad es negativa', () => {
     expect(() => validarCantidad(-1)).toThrow('La cantidad de entradas debe ser mayor a cero');
   });
 
-  it('PU-04: falla si la cantidad es decimal', () => {
+  it('CP-04: falla si la cantidad es decimal', () => {
     expect(() => validarCantidad(2.5)).toThrow('La cantidad de entradas debe ser un número entero');
   });
 
@@ -22,21 +22,21 @@ describe('validarCantidad', () => {
     expect(() => validarCantidad('2')).toThrow('La cantidad de entradas debe ser un número entero');
   });
 
-  it('PU-05: permite comprar 1 entrada', () => {
+  it('CP-05: permite comprar 1 entrada', () => {
     expect(() => validarCantidad(1)).not.toThrow();
   });
 
-  it('PU-06: permite comprar 10 entradas en una transacción', () => {
+  it('CP-06: permite comprar 10 entradas en una transacción', () => {
     expect(() => validarCantidad(10)).not.toThrow();
   });
 
-  it('PU-07: falla si se piden 11 entradas', () => {
+  it('CP-07: falla si se piden 11 entradas', () => {
     expect(() => validarCantidad(11)).toThrow('No se pueden comprar más de 10 entradas para una misma fecha');
   });
 });
 
 describe('validarVisitantes', () => {
-  it('PU-22: permite informar la edad y el pase de todos los visitantes', () => {
+  it('CP-22: permite informar la edad y el pase de todos los visitantes', () => {
     const visitantes = [
       { edad: 8, tipoPase: 'REGULAR' as const },
       { edad: 30, tipoPase: 'VIP' as const },
@@ -45,7 +45,7 @@ describe('validarVisitantes', () => {
     expect(() => validarVisitantes(visitantes, 3)).not.toThrow();
   });
 
-  it('PU-23: falla si falta la edad de un visitante', () => {
+  it('CP-23: falla si falta la edad de un visitante', () => {
     const visitantes = [
       { edad: 8, tipoPase: 'REGULAR' as const },
       { edad: 30, tipoPase: 'REGULAR' as const },
@@ -56,7 +56,7 @@ describe('validarVisitantes', () => {
     );
   });
 
-  it('PU-24: falla si una edad es negativa', () => {
+  it('CP-24: falla si una edad es negativa', () => {
     expect(() => validarVisitantes([{ edad: -1, tipoPase: 'REGULAR' }], 1)).toThrow(
       'La edad de los visitantes no puede ser negativa',
     );
@@ -83,7 +83,7 @@ describe('validarVisitantes', () => {
     expect(() => validarVisitantes({ length: 1 } as never, 1)).toThrow('Se debe informar la edad de cada visitante');
   });
 
-  it('PU-25: falla si no se selecciona el tipo de pase', () => {
+  it('CP-25: falla si no se selecciona el tipo de pase', () => {
     expect(() => validarVisitantes([{ edad: 30, tipoPase: undefined }], 1)).toThrow(
       'Se debe seleccionar el tipo de pase (Regular o VIP) de cada visitante',
     );

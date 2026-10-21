@@ -89,26 +89,26 @@ describe('API de compra de entradas', () => {
     expect(res.body.error).toMatch(/más de 10 entradas/);
   });
 
-  it('POST /api/compras responde 401 sin sesión (PU-37)', async () => {
+  it('POST /api/compras responde 401 sin sesión (CP-37)', async () => {
     const res = await request(app).post('/api/compras').send(compraValida);
     expect(res.status).toBe(401);
     expect(res.body.error).toBe('Debés iniciar sesión para comprar entradas');
   });
 
-  it('POST /api/compras responde 400 si el correo del usuario es inválido (PU-38)', async () => {
+  it('POST /api/compras responde 400 si el correo del usuario es inválido (CP-38)', async () => {
     const res = await request(app).post('/api/compras').set(SESION_MAIL_INVALIDO).send(compraValida);
     expect(res.status).toBe(400);
     expect(res.body.error).toMatch(/correo electrónico asociado es inválido/);
   });
 
-  it('POST /api/compras con tarjeta devuelve la URL de Mercado Pago (PU-40)', async () => {
+  it('POST /api/compras con tarjeta devuelve la URL de Mercado Pago (CP-40)', async () => {
     const res = await request(app).post('/api/compras').set(SESION).send(compraValida);
     expect(res.status).toBe(201);
     expect(res.body.compra.estado).toBe('PENDIENTE_MERCADO_PAGO');
     expect(res.body.urlPago).toBe(`/mercado-pago/${res.body.compra.id}`);
   });
 
-  it('flujo completo con tarjeta: Mercado Pago aprueba y llega el mail (PU-49)', async () => {
+  it('flujo completo con tarjeta: Mercado Pago aprueba y llega el mail (CP-49)', async () => {
     const inicio = await request(app).post('/api/compras').set(SESION).send(compraValida);
     const pago = await request(app)
       .post(`/api/mercado-pago/${inicio.body.compra.id}/resultado`)
@@ -122,7 +122,7 @@ describe('API de compra de entradas', () => {
     expect(mails.body[0].asunto).toBe('Confirmación de compra - EcoHarmony Park');
   });
 
-  it('Mercado Pago rechaza el pago (PU-42)', async () => {
+  it('Mercado Pago rechaza el pago (CP-42)', async () => {
     const inicio = await request(app).post('/api/compras').set(SESION).send(compraValida);
     const pago = await request(app)
       .post(`/api/mercado-pago/${inicio.body.compra.id}/resultado`)
@@ -191,7 +191,7 @@ describe('API de compra de entradas', () => {
     expect((await request(app).get('/api/compras/999').set(SESION)).status).toBe(404);
   });
 
-  it('confirma la compra cuando Mercado Pago informa el pago aprobado (PU-49)', async () => {
+  it('confirma la compra cuando Mercado Pago informa el pago aprobado (CP-49)', async () => {
     const conMercadoPago = crearApp({ reloj: relojFijo, email, pasarela: mercadoPagoConPago('APROBADO') });
     const inicio = await request(conMercadoPago).post('/api/compras').set(SESION).send(compraValida);
     expect(inicio.body.urlPago).toBe('https://mercadopago.test/checkout/000001');
@@ -225,7 +225,7 @@ describe('API de compra de entradas', () => {
     expect(res.body.error).toBe('No se pudo conectar con Mercado Pago');
   });
 
-  it('flujo completo en efectivo (PU-50)', async () => {
+  it('flujo completo en efectivo (CP-50)', async () => {
     const res = await request(app)
       .post('/api/compras')
       .set(SESION)

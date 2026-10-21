@@ -40,7 +40,7 @@ beforeEach(() => {
 });
 
 describe('PantallaResultado', () => {
-  it('PU-48: informa la cantidad de entradas y la fecha de visita', async () => {
+  it('CP-48: informa la cantidad de entradas y la fecha de visita', async () => {
     render(<PantallaResultado resultado={resultado({})} onNuevaCompra={() => {}} />);
     expect(screen.getByText('Compraste 2 entradas para el 17/10/2026')).toBeInTheDocument();
     expect(screen.getByText('2 entradas')).toBeInTheDocument();
@@ -50,13 +50,13 @@ describe('PantallaResultado', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 
-  it('PU-46: muestra el mail de confirmación enviado', async () => {
+  it('CP-46: muestra el mail de confirmación enviado', async () => {
     render(<PantallaResultado resultado={resultado({})} onNuevaCompra={() => {}} />);
     await userEvent.click(await screen.findByRole('button', { name: 'Ver mail enviado' }));
     expect(await screen.findByRole('dialog')).toHaveTextContent('Mail enviado a visitante@ejemplo.com');
   });
 
-  it('PU-48 / PU-50: con efectivo informa que el pago está pendiente', async () => {
+  it('CP-48 / CP-50: con efectivo informa que el pago está pendiente', async () => {
     render(
       <PantallaResultado
         resultado={resultado({ estado: 'PENDIENTE_PAGO_BOLETERIA', abonada: false, formaPago: 'EFECTIVO' })}
@@ -68,7 +68,7 @@ describe('PantallaResultado', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 
-  it('PU-42 / PU-47: con el pago rechazado no muestra entradas ni mail', () => {
+  it('CP-42 / CP-47: con el pago rechazado no muestra entradas ni mail', () => {
     render(
       <PantallaResultado
         resultado={resultado({ estado: 'RECHAZADA', abonada: false, entradas: [] }, 'El pago no pudo realizarse')}

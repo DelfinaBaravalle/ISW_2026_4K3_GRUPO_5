@@ -55,7 +55,7 @@ describe('PantallaCompra', () => {
     expect(screen.queryByText(/Debés iniciar sesión/)).not.toBeInTheDocument();
   });
 
-  it('PU-37: avisa que hay que iniciar sesión si no hay usuario', async () => {
+  it('CP-37: avisa que hay que iniciar sesión si no hay usuario', async () => {
     render(<PantallaCompra usuario={null} onFinalizar={() => {}} />);
     expect(await screen.findByText(/Debés iniciar sesión/)).toBeInTheDocument();
   });
@@ -66,7 +66,7 @@ describe('PantallaCompra', () => {
     expect(screen.getByText('$22.000')).toBeInTheDocument();
   });
 
-  it('PU-35: muestra el total calculado por el backend', async () => {
+  it('CP-35: muestra el total calculado por el backend', async () => {
     render(<PantallaCompra usuario={USUARIO} onFinalizar={() => {}} />);
     await completarFormulario('Efectivo');
     await waitFor(() => expect(screen.getByText('Total')).toBeInTheDocument());
@@ -79,14 +79,14 @@ describe('PantallaCompra', () => {
     );
   });
 
-  it('PU-39: muestra el error que devuelve el backend al confirmar', async () => {
+  it('CP-39: muestra el error que devuelve el backend al confirmar', async () => {
     mockApi.comprar.mockRejectedValue(new Error('Se debe seleccionar una forma de pago: tarjeta o efectivo'));
     render(<PantallaCompra usuario={USUARIO} onFinalizar={() => {}} />);
     await userEvent.click(await screen.findByRole('button', { name: 'Confirmar compra' }));
     expect(await screen.findByRole('alert')).toHaveTextContent('Se debe seleccionar una forma de pago');
   });
 
-  it('PU-40: con tarjeta redirige a Mercado Pago', async () => {
+  it('CP-40: con tarjeta redirige a Mercado Pago', async () => {
     mockApi.comprar.mockResolvedValue({
       compra: { id: '000001' } as never,
       mensaje: '',
@@ -100,7 +100,7 @@ describe('PantallaCompra', () => {
     expect(onFinalizar).not.toHaveBeenCalled();
   });
 
-  it('PU-40: con Mercado Pago real sale al checkout y guarda el borrador para reintentar al volver', async () => {
+  it('CP-40: con Mercado Pago real sale al checkout y guarda el borrador para reintentar al volver', async () => {
     const checkout = 'https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=1';
     mockApi.comprar.mockResolvedValue({ compra: { id: '000001' } as never, mensaje: '', urlPago: checkout });
     const onFinalizar = vi.fn();
@@ -112,7 +112,7 @@ describe('PantallaCompra', () => {
     expect(onFinalizar).not.toHaveBeenCalled();
   });
 
-  it('PU-44: con efectivo finaliza sin pasar por Mercado Pago', async () => {
+  it('CP-44: con efectivo finaliza sin pasar por Mercado Pago', async () => {
     const resultado = { compra: { id: '000002' } as never, mensaje: 'Registraste 1 entrada' };
     mockApi.comprar.mockResolvedValue(resultado);
     const onFinalizar = vi.fn();
@@ -123,7 +123,7 @@ describe('PantallaCompra', () => {
     expect(window.location.pathname).toBe('/');
   });
 
-  it('PU-07: marca en rojo el aviso si se escriben más de 10 entradas', async () => {
+  it('CP-07: marca en rojo el aviso si se escriben más de 10 entradas', async () => {
     render(<PantallaCompra usuario={USUARIO} onFinalizar={() => {}} />);
     const cantidad = await screen.findByLabelText('Cantidad de entradas');
     await userEvent.clear(cantidad);

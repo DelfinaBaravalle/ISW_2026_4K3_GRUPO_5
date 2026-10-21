@@ -6,7 +6,7 @@
 
 ## 1. Alcance
 
-Se implementó la User Story **Comprar entradas** (grupos impares), siguiendo los criterios de aceptación refinados y el Test List PU-01 a PU-50 del documento `TP_TDD_Grupo5_Pruebas_Compra_Entradas.docx`, más las aclaraciones del FAQ del PO.
+Se implementó la User Story **Comprar entradas** (grupos impares), siguiendo los criterios de aceptación refinados y el Test List CP-01 a CP-50, más las aclaraciones del FAQ del PO.
 
 La entrega incluye:
 
@@ -35,10 +35,10 @@ Se separó el **dominio** (reglas de negocio puras) de la **infraestructura** (H
 ```
 backend/src
 ├── dominio/                 ← reglas de negocio, sin dependencias externas
-│   ├── reglasFecha.ts       PU-11..21  apertura del parque, hoy hasta 17:30, máx. 1 mes
-│   ├── reglasEntradas.ts    PU-01..07, 22..25  cantidad, edades, tipo de pase
-│   ├── precios.ts           PU-26..35  precio base y descuentos por edad
-│   ├── compraEntradas.ts    PU-06..10, 36..50  caso de uso (orquesta todo)
+│   ├── reglasFecha.ts       CP-11..21  apertura del parque, hoy hasta 17:30, máx. 1 mes
+│   ├── reglasEntradas.ts    CP-01..07, 22..25  cantidad, edades, tipo de pase
+│   ├── precios.ts           CP-26..35  precio base y descuentos por edad
+│   ├── compraEntradas.ts    CP-06..10, 36..50  caso de uso (orquesta todo)
 │   ├── puertos.ts           interfaces: RepositorioCompras, PasarelaPago, ServicioEmail, Reloj
 │   ├── fechas.ts / formato.ts / tipos.ts / errores.ts / compra.ts
 ├── infraestructura/         ← implementaciones concretas de los puertos
@@ -54,7 +54,7 @@ backend/src
 **Por qué así:**
 
 - **Testeabilidad.** El caso de uso `CompraEntradasService` recibe sus dependencias por constructor (inyección de dependencias). En los tests se reemplazan por dobles (`RelojFijo`, `EmailFalso`, `PasarelaFalsa`). Así podemos probar "son las 17:31" o "Mercado Pago rechazó el pago" sin depender de la hora real ni de servicios externos.
-- **El reloj es un puerto.** Las reglas "hoy hasta las 17:30" y "máximo 1 mes" dependen del momento actual. Si el código llamara a `new Date()` directamente, los tests PU-12 a PU-18 no serían deterministas.
+- **El reloj es un puerto.** Las reglas "hoy hasta las 17:30" y "máximo 1 mes" dependen del momento actual. Si el código llamara a `new Date()` directamente, los tests CP-12 a CP-18 no serían deterministas.
 - **Fechas como texto `AAAA-MM-DD`.** Una fecha de visita es un día del calendario, no un instante. Usar `Date` con hora introduce errores por zona horaria (por ejemplo, que el 17/10 "se convierta" en 16/10). Los cálculos se hacen en UTC sobre el texto ISO, y la hora "actual" se obtiene en la zona `America/Argentina/Cordoba`.
 - **Una única fuente de verdad.** El precio, los días habilitados y todas las validaciones se calculan en el backend. El front consume `/api/calendario` para deshabilitar días y `/api/compras/cotizacion` para mostrar el total, así no se duplican las reglas.
 - **Errores de dominio tipados.** `ErrorCompra` tiene un `tipo` (`VALIDACION`, `NO_AUTENTICADO`, `NO_ENCONTRADO`) que la API traduce a 400/401/404. El dominio no conoce HTTP.
@@ -89,32 +89,32 @@ El Test List del documento del grupo se usó como _backlog_ de pruebas. Se avanz
 
 | Ciclo                             | Pruebas (Red)                                                                                                                                                   | Implementación (Green)                                                                                                                                             | Refactor                                                                                                                                                                                                                                 |
 | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1. Fecha de visita                | `reglasFecha.test.ts`: 17 tests (PU-11 a PU-21, más formato inválido y meses cortos). Fallaban porque el módulo no existía.                                     | `parqueAbierto` y `validarFechaVisita` en un solo bloque, con cálculos de `Date` en línea.                                                                         | Se extrajeron `fechas.ts` (`aFechaUTC`, `sumarUnMes`, `esFechaISOValida`) y las constantes `HORA_LIMITE_COMPRA_MISMO_DIA`, `FERIADOS_CERRADO` y `LUNES`. Siguió en 17/17.                                                                |
-| 2. Cantidad, edades y precios     | `reglasEntradas.test.ts` (PU-01 a 07, 22 a 25) y `precios.test.ts` (PU-26 a 35).                                                                                | `validarCantidad`, `validarVisitantes`, `calcularPrecioEntrada` y `calcularDetallePrecios`. Precios en `PRECIOS_BASE` y descuento en `porcentajeDescuentoPorEdad`. | Tipos compartidos en `tipos.ts` (`TIPOS_PASE` como única lista de pases válidos). 41/41.                                                                                                                                                 |
-| 3. Caso de uso de compra          | `compraEntradas.test.ts`: 25 tests con dobles de prueba (PU-06, 08 a 10, 36 a 50).                                                                              | `CompraEntradasService` con `cotizar`, `iniciarCompra` y `registrarResultadoPago`, y `RepositorioComprasEnMemoria`.                                                | Se movió el formateo de fecha y pesos a `formato.ts`. Chequeo de tipos con `tsc`. 66/66.                                                                                                                                                 |
-| 4. API HTTP                       | `app.test.ts`: 15 tests con Supertest (sesión, calendario, cotización, PU-37, 38, 40, 42, 49 y 50).                                                             | `crearApp` con Express y adaptadores simulados de Mercado Pago, mail, reloj y sesión.                                                                              | El código HTTP se elegía buscando texto en el mensaje de error. Se reemplazó por `ErrorCompra.tipo` y una tabla `STATUS_POR_TIPO_ERROR`. 81/81.                                                                                          |
+| 1. Fecha de visita                | `reglasFecha.test.ts`: 17 tests (CP-11 a CP-21, más formato inválido y meses cortos). Fallaban porque el módulo no existía.                                     | `parqueAbierto` y `validarFechaVisita` en un solo bloque, con cálculos de `Date` en línea.                                                                         | Se extrajeron `fechas.ts` (`aFechaUTC`, `sumarUnMes`, `esFechaISOValida`) y las constantes `HORA_LIMITE_COMPRA_MISMO_DIA`, `FERIADOS_CERRADO` y `LUNES`. Siguió en 17/17.                                                                |
+| 2. Cantidad, edades y precios     | `reglasEntradas.test.ts` (CP-01 a 07, 22 a 25) y `precios.test.ts` (CP-26 a 35).                                                                                | `validarCantidad`, `validarVisitantes`, `calcularPrecioEntrada` y `calcularDetallePrecios`. Precios en `PRECIOS_BASE` y descuento en `porcentajeDescuentoPorEdad`. | Tipos compartidos en `tipos.ts` (`TIPOS_PASE` como única lista de pases válidos). 41/41.                                                                                                                                                 |
+| 3. Caso de uso de compra          | `compraEntradas.test.ts`: 25 tests con dobles de prueba (CP-06, 08 a 10, 36 a 50).                                                                              | `CompraEntradasService` con `cotizar`, `iniciarCompra` y `registrarResultadoPago`, y `RepositorioComprasEnMemoria`.                                                | Se movió el formateo de fecha y pesos a `formato.ts`. Chequeo de tipos con `tsc`. 66/66.                                                                                                                                                 |
+| 4. API HTTP                       | `app.test.ts`: 15 tests con Supertest (sesión, calendario, cotización, CP-37, 38, 40, 42, 49 y 50).                                                             | `crearApp` con Express y adaptadores simulados de Mercado Pago, mail, reloj y sesión.                                                                              | El código HTTP se elegía buscando texto en el mensaje de error. Se reemplazó por `ErrorCompra.tipo` y una tabla `STATUS_POR_TIPO_ERROR`. 81/81.                                                                                          |
 | 5. Front: calendario y visitantes | `Calendario.test.tsx` y `ListaVisitantes.test.tsx`: 11 tests (días cerrados deshabilitados según el FAQ 2, rango de compra, selección, una fila por visitante). | Componentes `Calendario` y `ListaVisitantes` + `ajustarVisitantes`.                                                                                                | Se agregó la limpieza del DOM entre tests en `setupTests.ts`. 11/11.                                                                                                                                                                     |
 | 6. Revisión y corrección de bugs  | Se escribió un test que reproducía cada bug encontrado (ver sección 5) y se verificó que fallara: 7 en el back y 4 en el front.                                 | Se corrigió cada bug.                                                                                                                                              | Los precios y el máximo de entradas que el front tenía escritos a mano pasaron a leerse de `/api/precios`. Se eliminó código sin uso. Back 94/94, front 40/40.                                                                           |
 | 7. Revisión final                 | Tests que reproducían 5 problemas más (sección 5): 5 en el back y 2 en el front.                                                                                | Se corrigió cada uno.                                                                                                                                              | ESLint detectó un `setState` dentro de un efecto en la cotización en vivo. Se reescribió para que la cotización mostrada se derive de los datos actuales del formulario. Se aplicó Prettier a todo el código. Back 101/101, front 42/42. |
 
 ### Trazabilidad Test List → pruebas automatizadas
 
-| Pruebas de usuario                                  | Archivo de test                                                                   |
+| Casos de prueba                                     | Archivo de test                                                                   |
 | --------------------------------------------------- | --------------------------------------------------------------------------------- |
-| PU-01 a PU-07 (cantidad)                            | `backend/test/dominio/reglasEntradas.test.ts`                                     |
-| PU-06, PU-08 a PU-10 (límite acumulado por fecha)   | `backend/test/dominio/compraEntradas.test.ts`                                     |
-| PU-11 a PU-21 (fecha)                               | `backend/test/dominio/reglasFecha.test.ts` (+ `frontend/.../Calendario.test.tsx`) |
-| PU-22 a PU-25 (edad y tipo de pase)                 | `backend/test/dominio/reglasEntradas.test.ts`                                     |
-| PU-26 a PU-35 (precios y descuentos)                | `backend/test/dominio/precios.test.ts`                                            |
-| PU-36 a PU-38 (usuario y correo)                    | `compraEntradas.test.ts` + `backend/test/api/app.test.ts`                         |
-| PU-39 a PU-42 (forma de pago y Mercado Pago)        | `compraEntradas.test.ts` + `app.test.ts`                                          |
-| PU-43 a PU-45 (efectivo)                            | `compraEntradas.test.ts`                                                          |
-| PU-46 a PU-50 (confirmación y flujos completos)     | `compraEntradas.test.ts` + `app.test.ts` + `PantallaResultado.test.tsx`           |
-| PU-07, 35, 37, 39, 40, 44 (vista desde la interfaz) | `frontend/src/components/PantallaCompra.test.tsx`                                 |
-| PU-41, 42 (pantalla de Mercado Pago)                | `frontend/src/components/PantallaMercadoPago.test.tsx`                            |
+| CP-01 a CP-07 (cantidad)                            | `backend/test/dominio/reglasEntradas.test.ts`                                     |
+| CP-06, CP-08 a CP-10 (límite acumulado por fecha)   | `backend/test/dominio/compraEntradas.test.ts`                                     |
+| CP-11 a CP-21 (fecha)                               | `backend/test/dominio/reglasFecha.test.ts` (+ `frontend/.../Calendario.test.tsx`) |
+| CP-22 a CP-25 (edad y tipo de pase)                 | `backend/test/dominio/reglasEntradas.test.ts`                                     |
+| CP-26 a CP-35 (precios y descuentos)                | `backend/test/dominio/precios.test.ts`                                            |
+| CP-36 a CP-38 (usuario y correo)                    | `compraEntradas.test.ts` + `backend/test/api/app.test.ts`                         |
+| CP-39 a CP-42 (forma de pago y Mercado Pago)        | `compraEntradas.test.ts` + `app.test.ts`                                          |
+| CP-43 a CP-45 (efectivo)                            | `compraEntradas.test.ts`                                                          |
+| CP-46 a CP-50 (confirmación y flujos completos)     | `compraEntradas.test.ts` + `app.test.ts` + `PantallaResultado.test.tsx`           |
+| CP-07, 35, 37, 39, 40, 44 (vista desde la interfaz) | `frontend/src/components/PantallaCompra.test.tsx`                                 |
+| CP-41, 42 (pantalla de Mercado Pago)                | `frontend/src/components/PantallaMercadoPago.test.tsx`                            |
 | Criterio 10 (sin cupo diario del parque)            | `compraEntradas.test.ts`                                                          |
 
-Cada test lleva en su nombre el código PU correspondiente, por ejemplo `it('PU-14: falla si se compra para hoy después de las 17:30')`. Los 50 PU del Test List y los 31 criterios refinados tienen al menos un test automatizado.
+Cada test lleva en su nombre el código CP correspondiente, por ejemplo `it('CP-14: falla si se compra para hoy después de las 17:30')`. Los 50 CP del Test List y los 31 criterios refinados tienen al menos un test automatizado.
 
 ### Cobertura
 
@@ -152,15 +152,15 @@ Para cada uno se escribió primero un test que lo reproducía (Red) y después l
 
 | Tema                       | Decisión                                                                                                                                                                                                                       | Fundamento                                                                                                                          |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
-| Registro y login           | Sesión **simulada** con tokens fijos (`sesion-demo` y `sesion-mail-invalido`).                                                                                                                                                 | FAQ 19: "pueden comenzar con la sesión y el usuario mockeados". El segundo usuario permite probar PU-38.                            |
+| Registro y login           | Sesión **simulada** con tokens fijos (`sesion-demo` y `sesion-mail-invalido`).                                                                                                                                                 | FAQ 19: "pueden comenzar con la sesión y el usuario mockeados". El segundo usuario permite probar CP-38.                            |
 | Mercado Pago               | Pantalla propia que simula el checkout, con botones "Pagar" y "Simular pago rechazado".                                                                                                                                        | FAQ 4. El resultado llega por un endpoint que hace las veces de _webhook_.                                                          |
 | Mail                       | Servicio simulado que guarda los mails en memoria. El front los muestra en un modal "Mail enviado a …".                                                                                                                        | FAQ 5. El contenido incluye orden, fecha, cantidad, detalle por visitante con subtotal y total.                                     |
-| Tipo de pase               | Se elige **por visitante**.                                                                                                                                                                                                    | Los criterios hablan de "los tipos de pase" (PU-39) y permiten combinar VIP y Regular en una compra. FAQ 21: solo cambia el precio. |
+| Tipo de pase               | Se elige **por visitante**.                                                                                                                                                                                                    | Los criterios hablan de "los tipos de pase" (CP-39) y permiten combinar VIP y Regular en una compra. FAQ 21: solo cambia el precio. |
 | Límite de 10 entradas      | Por usuario y fecha, sumando las compras **confirmadas** y las **pendientes en boletería**. Las rechazadas y las que todavía esperan a Mercado Pago no cuentan, pero el límite **se vuelve a controlar al aprobarse el pago**. | FAQ 27. Así una compra con tarjeta abandonada no bloquea al usuario, y tampoco se pueden superar las 10 con compras en paralelo.    |
-| "Exactamente un mes"       | Mismo día del mes siguiente. Si no existe (31/01), el último día de ese mes (28/02).                                                                                                                                           | PU-17 y PU-18, FAQ 25.                                                                                                              |
-| Hora límite para hoy       | Hasta las 17:30 **inclusive**, en hora de Córdoba.                                                                                                                                                                             | PU-13, FAQ 26.                                                                                                                      |
-| Edad                       | Entero entre 0 y 120. Edad 0 (bebés) es válida y no paga.                                                                                                                                                                      | PU-24 y PU-28. El máximo de 120 evita datos absurdos.                                                                               |
-| Efectivo                   | Se registran las entradas con código, pero la compra queda `abonada: false`.                                                                                                                                                   | PU-43, criterio 26.                                                                                                                 |
+| "Exactamente un mes"       | Mismo día del mes siguiente. Si no existe (31/01), el último día de ese mes (28/02).                                                                                                                                           | CP-17 y CP-18, FAQ 25.                                                                                                              |
+| Hora límite para hoy       | Hasta las 17:30 **inclusive**, en hora de Córdoba.                                                                                                                                                                             | CP-13, FAQ 26.                                                                                                                      |
+| Edad                       | Entero entre 0 y 120. Edad 0 (bebés) es válida y no paga.                                                                                                                                                                      | CP-24 y CP-28. El máximo de 120 evita datos absurdos.                                                                               |
+| Efectivo                   | Se registran las entradas con código, pero la compra queda `abonada: false`.                                                                                                                                                   | CP-43, criterio 26.                                                                                                                 |
 | Pago con tarjeta pendiente | Una compra que espera a Mercado Pago no ocupa cupo. Si al aprobarse el pago ya se superaron las 10 entradas, o la fecha pasó, la compra se rechaza.                                                                            | En una integración real con Mercado Pago, ese caso implicaría devolver el dinero.                                                   |
 | Endpoints de Mercado Pago  | No exigen sesión.                                                                                                                                                                                                              | Simulan las llamadas que haría Mercado Pago, que no tiene la sesión del usuario. En producción se validaría la firma del _webhook_. |
 | Persistencia               | En memoria: se reinicia al reiniciar el servidor.                                                                                                                                                                              | La US no define persistencia. El repositorio es un puerto, así que se puede cambiar por una base de datos sin tocar el dominio.     |
@@ -300,12 +300,12 @@ Los endpoints de la simulación (`/api/mercado-pago/:id` y `/api/mercado-pago/:i
 
 ### Trazabilidad
 
-| Pruebas de usuario                                  | Archivo de test                                                                              |
+| Casos de prueba                                     | Archivo de test                                                                              |
 | --------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| PU-40 (redirección real al checkout)                | `mercadoPagoCheckoutPro.test.ts` + `PantallaCompra.test.tsx` + `app.test.ts`                 |
-| PU-41, PU-42 (resultado informado por Mercado Pago) | `compraEntradas.test.ts` + `mercadoPagoCheckoutPro.test.ts` + `PantallaRetornoPago.test.tsx` |
-| PU-37 (sesión al confirmar o consultar una compra)  | `compraEntradas.test.ts` + `app.test.ts`                                                     |
-| PU-49 (flujo completo con tarjeta)                  | `app.test.ts` + prueba manual de punta a punta (abajo)                                       |
+| CP-40 (redirección real al checkout)                | `mercadoPagoCheckoutPro.test.ts` + `PantallaCompra.test.tsx` + `app.test.ts`                 |
+| CP-41, CP-42 (resultado informado por Mercado Pago) | `compraEntradas.test.ts` + `mercadoPagoCheckoutPro.test.ts` + `PantallaRetornoPago.test.tsx` |
+| CP-37 (sesión al confirmar o consultar una compra)  | `compraEntradas.test.ts` + `app.test.ts`                                                     |
+| CP-49 (flujo completo con tarjeta)                  | `app.test.ts` + prueba manual de punta a punta (abajo)                                       |
 
 ### Prueba manual de punta a punta
 
@@ -378,11 +378,11 @@ backend/src/server.ts       con RESEND_API_KEY reenvía por Resend; sin ella, so
 
 ### Trazabilidad
 
-| Pruebas de usuario                                            | Archivo de test                                                                 |
+| Casos de prueba                                               | Archivo de test                                                                 |
 | ------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| PU-45 (mail de pago pendiente en efectivo)                    | `compraEntradas.test.ts` + `emailResend.test.ts` + `plantillaEmailHtml.test.ts` |
-| PU-46 (mail de confirmación de un pago aprobado)              | `compraEntradas.test.ts` + `emailResend.test.ts` + `plantillaEmailHtml.test.ts` |
-| PU-47 (sin mail de confirmación si se rechaza)                | `compraEntradas.test.ts` (sin cambios: el dominio no envía el mail)             |
+| CP-45 (mail de pago pendiente en efectivo)                    | `compraEntradas.test.ts` + `emailResend.test.ts` + `plantillaEmailHtml.test.ts` |
+| CP-46 (mail de confirmación de un pago aprobado)              | `compraEntradas.test.ts` + `emailResend.test.ts` + `plantillaEmailHtml.test.ts` |
+| CP-47 (sin mail de confirmación si se rechaza)                | `compraEntradas.test.ts` (sin cambios: el dominio no envía el mail)             |
 | Criterios 27 y 28 sin interrumpir la compra si falla el envío | `emailSimulado.test.ts`                                                         |
 
 ### Prueba manual

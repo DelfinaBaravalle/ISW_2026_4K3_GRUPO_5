@@ -21,7 +21,7 @@ beforeEach(() => {
 });
 
 describe('PantallaRetornoPago', () => {
-  it('PU-41: con el pago aprobado confirma la compra consultando a Mercado Pago', async () => {
+  it('CP-41: con el pago aprobado confirma la compra consultando a Mercado Pago', async () => {
     volverDeMercadoPago('payment_id=123&status=approved');
     mockApi.confirmarPagoMercadoPago.mockResolvedValue(resultado('CONFIRMADA'));
     const onFinalizar = vi.fn();
@@ -31,7 +31,7 @@ describe('PantallaRetornoPago', () => {
     expect(mockApi.confirmarPagoMercadoPago).toHaveBeenCalledWith('123');
   });
 
-  it('PU-42: con el pago rechazado muestra el resultado de la compra', async () => {
+  it('CP-42: con el pago rechazado muestra el resultado de la compra', async () => {
     volverDeMercadoPago('payment_id=123&status=rejected');
     mockApi.confirmarPagoMercadoPago.mockResolvedValue(resultado('RECHAZADA'));
     const onFinalizar = vi.fn();
