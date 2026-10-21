@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 970 450" font-family="Lato, Helvetica, Arial, sans-serif">
+<rect width="970" height="450" fill="#F8F4E8"/>
+<text x="485.0" y="34" text-anchor="middle" font-size="22" font-weight="900" fill="#386641">EcoHarmony Park · Opciones de logo</text>
+<rect x="16" y="56" width="178" height="380" rx="14" fill="#fff" stroke="#e2dcc8"/>
+<svg x="35" y="72" width="140" height="140" viewBox="0 0 64 64">
+  <circle cx="32" cy="32" r="30" fill="#A7C957"/>
+  <path d="M32 2 A30 30 0 0 0 32 62 A15 15 0 0 0 32 32 A15 15 0 0 1 32 2 Z" fill="#386641"/>
+  <path d="M32 10 C37 13.5 37 20.5 32 24 C27 20.5 27 13.5 32 10 Z" fill="#F2E8CF"/>
+  <path d="M32 40 C37 43.5 37 50.5 32 54 C27 50.5 27 43.5 32 40 Z" fill="#F2E8CF"/>
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#F2E8CF" stroke-width="2.5"/>
+</svg>
+<text x="105.0" y="240" text-anchor="middle" font-size="16" font-weight="900" fill="#386641">A · Armonía</text>
+<text x="105.0" y="260" text-anchor="middle" font-size="11" fill="#55665a">Dos hojas que forman un círculo</text>
+<rect x="26" y="280" width="158" height="52" rx="10" fill="#386641"/>
+<svg x="34" y="288" width="36" height="36" viewBox="0 0 64 64">
+  <circle cx="32" cy="32" r="30" fill="#A7C957"/>
+  <path d="M32 2 A30 30 0 0 0 32 62 A15 15 0 0 0 32 32 A15 15 0 0 1 32 2 Z" fill="#386641"/>
+  <path d="M32 10 C37 13.5 37 20.5 32 24 C27 20.5 27 13.5 32 10 Z" fill="#F2E8CF"/>
+  <path d="M32 40 C37 43.5 37 50.5 32 54 C27 50.5 27 43.5 32 40 Z" fill="#F2E8CF"/>
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#F2E8CF" stroke-width="2.5"/>
+</svg>
+<text x="76" y="311" font-size="12" fill="#F2E8CF">EcoHarmony</text><text x="76" y="325" font-size="12" font-weight="900" fill="#A7C957">Park</text>
+<text x="105.0" y="352" text-anchor="middle" font-size="10" fill="#55665a">Así se ve en el encabezado</text>
+<svg x="77.0" y="364" width="32" height="32" viewBox="0 0 64 64">
+  <circle cx="32" cy="32" r="30" fill="#A7C957"/>
+  <path d="M32 2 A30 30 0 0 0 32 62 A15 15 0 0 0 32 32 A15 15 0 0 1 32 2 Z" fill="#386641"/>
+  <path d="M32 10 C37 13.5 37 20.5 32 24 C27 20.5 27 13.5 32 10 Z" fill="#F2E8CF"/>
+  <path d="M32 40 C37 43.5 37 50.5 32 54 C27 50.5 27 43.5 32 40 Z" fill="#F2E8CF"/>
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#F2E8CF" stroke-width="2.5"/>
+</svg>
+<svg x="117.0" y="372" width="16" height="16" viewBox="0 0 64 64">
+  <circle cx="32" cy="32" r="30" fill="#A7C957"/>
+  <path d="M32 2 A30 30 0 0 0 32 62 A15 15 0 0 0 32 32 A15 15 0 0 1 32 2 Z" fill="#386641"/>
+  <path d="M32 10 C37 13.5 37 20.5 32 24 C27 20.5 27 13.5 32 10 Z" fill="#F2E8CF"/>
+  <path d="M32 40 C37 43.5 37 50.5 32 54 C27 50.5 27 43.5 32 40 Z" fill="#F2E8CF"/>
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#F2E8CF" stroke-width="2.5"/>
+</svg>
+<text x="105.0" y="418" text-anchor="middle" font-size="10" fill="#55665a">Ícono y pestaña del navegador</text>
+<rect x="206" y="56" width="178" height="380" rx="14" fill="#fff" stroke="#e2dcc8"/>
+<svg x="225" y="72" width="140" height="140" viewBox="0 0 64 64">
+  <defs><clipPath id="o1hojaB"><path d="M32 3 C53 15 57 41 32 59 C7 41 11 15 32 3 Z"/></clipPath></defs>
+  <path d="M32 3 C53 15 57 41 32 59 C7 41 11 15 32 3 Z" fill="#A7C957"/>
+  <g clip-path="url(#o1hojaB)">
+    <path d="M4 46 L22 26 L29 34 L39 20 L60 46 L60 64 L4 64 Z" fill="#6A994E"/>
+    <path d="M4 52 L20 38 L30 46 L42 34 L60 50 L60 64 L4 64 Z" fill="#386641"/>
+    <path d="M36 23.5 L39 20 L42.5 24.5 L39.5 23 Z" fill="#F2E8CF"/>
+  </g>
+  <circle cx="23" cy="19" r="4.5" fill="#BC4749"/>
+  <path d="M32 59 L32 63" stroke="#386641" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M32 3 C53 15 57 41 32 59 C7 41 11 15 32 3 Z" fill="none" stroke="#386641" stroke-width="2"/>
+</svg>
+<text x="295.0" y="240" text-anchor="middle" font-size="16" font-weight="900" fill="#386641">B · Hoja-montaña</text>
+<text x="295.0" y="260" text-anchor="middle" font-size="11" fill="#55665a">Una hoja con las sierras adentro</text>
+<rect x="216" y="280" width="158" height="52" rx="10" fill="#386641"/>
+<svg x="224" y="288" width="36" height="36" viewBox="0 0 64 64">
+  <defs><clipPath id="p1hojaB"><path d="M32 3 C53 15 57 41 32 59 C7 41 11 15 32 3 Z"/></clipPath></defs>
+  <path d="M32 3 C53 15 57 41 32 59 C7 41 11 15 32 3 Z" fill="#A7C957"/>
+  <g clip-path="url(#p1hojaB)">
+    <path d="M4 46 L22 26 L29 34 L39 20 L60 46 L60 64 L4 64 Z" fill="#6A994E"/>
+    <path d="M4 52 L20 38 L30 46 L42 34 L60 50 L60 64 L4 64 Z" fill="#386641"/>
+    <path d="M36 23.5 L39 20 L42.5 24.5 L39.5 23 Z" fill="#F2E8CF"/>
+  </g>
+  <circle cx="23" cy="19" r="4.5" fill="#BC4749"/>
+  <path d="M32 59 L32 63" stroke="#386641" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M32 3 C53 15 57 41 32 59 C7 41 11 15 32 3 Z" fill="none" stroke="#386641" stroke-width="2"/>
+</svg>
+<text x="266" y="311" font-size="12" fill="#F2E8CF">EcoHarmony</text><text x="266" y="325" font-size="12" font-weight="900" fill="#A7C957">Park</text>
+<text x="295.0" y="352" text-anchor="middle" font-size="10" fill="#55665a">Así se ve en el encabezado</text>
+<svg x="267.0" y="364" width="32" height="32" viewBox="0 0 64 64">
+  <defs><clipPath id="q1hojaB"><path d="M32 3 C53 15 57 41 32 59 C7 41 11 15 32 3 Z"/></clipPath></defs>
+  <path d="M32 3 C53 15 57 41 32 59 C7 41 11 15 32 3 Z" fill="#A7C957"/>
+  <g clip-path="url(#q1hojaB)">
+    <path d="M4 46 L22 26 L29 34 L39 20 L60 46 L60 64 L4 64 Z" fill="#6A994E"/>
+    <path d="M4 52 L20 38 L30 46 L42 34 L60 50 L60 64 L4 64 Z" fill="#386641"/>
+    <path d="M36 23.5 L39 20 L42.5 24.5 L39.5 23 Z" fill="#F2E8CF"/>
+  </g>
+  <circle cx="23" cy="19" r="4.5" fill="#BC4749"/>
+  <path d="M32 59 L32 63" stroke="#386641" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M32 3 C53 15 57 41 32 59 C7 41 11 15 32 3 Z" fill="none" stroke="#386641" stroke-width="2"/>
+</svg>
+<svg x="307.0" y="372" width="16" height="16" viewBox="0 0 64 64">
+  <defs><clipPath id="r1hojaB"><path d="M32 3 C53 15 57 41 32 59 C7 41 11 15 32 3 Z"/></clipPath></defs>
+  <path d="M32 3 C53 15 57 41 32 59 C7 41 11 15 32 3 Z" fill="#A7C957"/>
+  <g clip-path="url(#r1hojaB)">
+    <path d="M4 46 L22 26 L29 34 L39 20 L60 46 L60 64 L4 64 Z" fill="#6A994E"/>
+    <path d="M4 52 L20 38 L30 46 L42 34 L60 50 L60 64 L4 64 Z" fill="#386641"/>
+    <path d="M36 23.5 L39 20 L42.5 24.5 L39.5 23 Z" fill="#F2E8CF"/>
+  </g>
+  <circle cx="23" cy="19" r="4.5" fill="#BC4749"/>
+  <path d="M32 59 L32 63" stroke="#386641" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M32 3 C53 15 57 41 32 59 C7 41 11 15 32 3 Z" fill="none" stroke="#386641" stroke-width="2"/>
+</svg>
+<text x="295.0" y="418" text-anchor="middle" font-size="10" fill="#55665a">Ícono y pestaña del navegador</text>
+<rect x="396" y="56" width="178" height="380" rx="14" fill="#fff" stroke="#e2dcc8"/>
+<svg x="415" y="72" width="140" height="140" viewBox="0 0 64 64">
+  <defs><clipPath id="o2circuloC"><circle cx="32" cy="32" r="30"/></clipPath></defs>
+  <circle cx="32" cy="32" r="30" fill="#F2E8CF"/>
+  <g clip-path="url(#o2circuloC)">
+    <circle cx="47" cy="17" r="5" fill="#BC4749"/>
+    <path d="M0 46 Q32 34 64 46 L64 64 L0 64 Z" fill="#A7C957"/>
+    <rect x="29.5" y="32" width="5" height="14" rx="2" fill="#386641"/>
+    <circle cx="32" cy="22" r="10" fill="#6A994E"/>
+    <circle cx="24" cy="28" r="8" fill="#386641"/>
+    <circle cx="40" cy="28" r="8" fill="#386641"/>
+    <circle cx="32" cy="27" r="6" fill="#6A994E"/>
+  </g>
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#386641" stroke-width="2"/>
+</svg>
+<text x="485.0" y="240" text-anchor="middle" font-size="16" font-weight="900" fill="#386641">C · Árbol</text>
+<text x="485.0" y="260" text-anchor="middle" font-size="11" fill="#55665a">Árbol sobre una loma, con sol</text>
+<rect x="406" y="280" width="158" height="52" rx="10" fill="#386641"/>
+<svg x="414" y="288" width="36" height="36" viewBox="0 0 64 64">
+  <defs><clipPath id="p2circuloC"><circle cx="32" cy="32" r="30"/></clipPath></defs>
+  <circle cx="32" cy="32" r="30" fill="#F2E8CF"/>
+  <g clip-path="url(#p2circuloC)">
+    <circle cx="47" cy="17" r="5" fill="#BC4749"/>
+    <path d="M0 46 Q32 34 64 46 L64 64 L0 64 Z" fill="#A7C957"/>
+    <rect x="29.5" y="32" width="5" height="14" rx="2" fill="#386641"/>
+    <circle cx="32" cy="22" r="10" fill="#6A994E"/>
+    <circle cx="24" cy="28" r="8" fill="#386641"/>
+    <circle cx="40" cy="28" r="8" fill="#386641"/>
+    <circle cx="32" cy="27" r="6" fill="#6A994E"/>
+  </g>
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#386641" stroke-width="2"/>
+</svg>
+<text x="456" y="311" font-size="12" fill="#F2E8CF">EcoHarmony</text><text x="456" y="325" font-size="12" font-weight="900" fill="#A7C957">Park</text>
+<text x="485.0" y="352" text-anchor="middle" font-size="10" fill="#55665a">Así se ve en el encabezado</text>
+<svg x="457.0" y="364" width="32" height="32" viewBox="0 0 64 64">
+  <defs><clipPath id="q2circuloC"><circle cx="32" cy="32" r="30"/></clipPath></defs>
+  <circle cx="32" cy="32" r="30" fill="#F2E8CF"/>
+  <g clip-path="url(#q2circuloC)">
+    <circle cx="47" cy="17" r="5" fill="#BC4749"/>
+    <path d="M0 46 Q32 34 64 46 L64 64 L0 64 Z" fill="#A7C957"/>
+    <rect x="29.5" y="32" width="5" height="14" rx="2" fill="#386641"/>
+    <circle cx="32" cy="22" r="10" fill="#6A994E"/>
+    <circle cx="24" cy="28" r="8" fill="#386641"/>
+    <circle cx="40" cy="28" r="8" fill="#386641"/>
+    <circle cx="32" cy="27" r="6" fill="#6A994E"/>
+  </g>
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#386641" stroke-width="2"/>
+</svg>
+<svg x="497.0" y="372" width="16" height="16" viewBox="0 0 64 64">
+  <defs><clipPath id="r2circuloC"><circle cx="32" cy="32" r="30"/></clipPath></defs>
+  <circle cx="32" cy="32" r="30" fill="#F2E8CF"/>
+  <g clip-path="url(#r2circuloC)">
+    <circle cx="47" cy="17" r="5" fill="#BC4749"/>
+    <path d="M0 46 Q32 34 64 46 L64 64 L0 64 Z" fill="#A7C957"/>
+    <rect x="29.5" y="32" width="5" height="14" rx="2" fill="#386641"/>
+    <circle cx="32" cy="22" r="10" fill="#6A994E"/>
+    <circle cx="24" cy="28" r="8" fill="#386641"/>
+    <circle cx="40" cy="28" r="8" fill="#386641"/>
+    <circle cx="32" cy="27" r="6" fill="#6A994E"/>
+  </g>
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#386641" stroke-width="2"/>
+</svg>
+<text x="485.0" y="418" text-anchor="middle" font-size="10" fill="#55665a">Ícono y pestaña del navegador</text>
+<rect x="586" y="56" width="178" height="380" rx="14" fill="#fff" stroke="#e2dcc8"/>
+<svg x="605" y="72" width="140" height="140" viewBox="0 0 64 64">
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#386641"/>
+  <text x="31" y="43" text-anchor="middle" font-family="Lato, Helvetica, Arial, sans-serif" font-weight="900" font-size="28" fill="#F2E8CF" letter-spacing="-1">EH</text>
+  <path d="M44 8 C54 10 57 18 52 26 C45 22 42 14 44 8 Z" fill="#A7C957"/>
+  <path d="M44 8 Q49 17 52 26" stroke="#386641" stroke-width="1.2" fill="none"/>
+  <rect x="14" y="49" width="36" height="3" rx="1.5" fill="#BC4749"/>
+</svg>
+<text x="675.0" y="240" text-anchor="middle" font-size="16" font-weight="900" fill="#386641">D · Monograma</text>
+<text x="675.0" y="260" text-anchor="middle" font-size="11" fill="#55665a">Iniciales EH con una hoja</text>
+<rect x="596" y="280" width="158" height="52" rx="10" fill="#386641"/>
+<svg x="604" y="288" width="36" height="36" viewBox="0 0 64 64">
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#386641"/>
+  <text x="31" y="43" text-anchor="middle" font-family="Lato, Helvetica, Arial, sans-serif" font-weight="900" font-size="28" fill="#F2E8CF" letter-spacing="-1">EH</text>
+  <path d="M44 8 C54 10 57 18 52 26 C45 22 42 14 44 8 Z" fill="#A7C957"/>
+  <path d="M44 8 Q49 17 52 26" stroke="#386641" stroke-width="1.2" fill="none"/>
+  <rect x="14" y="49" width="36" height="3" rx="1.5" fill="#BC4749"/>
+</svg>
+<text x="646" y="311" font-size="12" fill="#F2E8CF">EcoHarmony</text><text x="646" y="325" font-size="12" font-weight="900" fill="#A7C957">Park</text>
+<text x="675.0" y="352" text-anchor="middle" font-size="10" fill="#55665a">Así se ve en el encabezado</text>
+<svg x="647.0" y="364" width="32" height="32" viewBox="0 0 64 64">
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#386641"/>
+  <text x="31" y="43" text-anchor="middle" font-family="Lato, Helvetica, Arial, sans-serif" font-weight="900" font-size="28" fill="#F2E8CF" letter-spacing="-1">EH</text>
+  <path d="M44 8 C54 10 57 18 52 26 C45 22 42 14 44 8 Z" fill="#A7C957"/>
+  <path d="M44 8 Q49 17 52 26" stroke="#386641" stroke-width="1.2" fill="none"/>
+  <rect x="14" y="49" width="36" height="3" rx="1.5" fill="#BC4749"/>
+</svg>
+<svg x="687.0" y="372" width="16" height="16" viewBox="0 0 64 64">
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#386641"/>
+  <text x="31" y="43" text-anchor="middle" font-family="Lato, Helvetica, Arial, sans-serif" font-weight="900" font-size="28" fill="#F2E8CF" letter-spacing="-1">EH</text>
+  <path d="M44 8 C54 10 57 18 52 26 C45 22 42 14 44 8 Z" fill="#A7C957"/>
+  <path d="M44 8 Q49 17 52 26" stroke="#386641" stroke-width="1.2" fill="none"/>
+  <rect x="14" y="49" width="36" height="3" rx="1.5" fill="#BC4749"/>
+</svg>
+<text x="675.0" y="418" text-anchor="middle" font-size="10" fill="#55665a">Ícono y pestaña del navegador</text>
+<rect x="776" y="56" width="178" height="380" rx="14" fill="#fff" stroke="#e2dcc8"/>
+<svg x="795" y="72" width="140" height="140" viewBox="0 0 64 64">
+  <defs><clipPath id="o4arcoE"><path d="M8 60 L8 28 A24 24 0 0 1 56 28 L56 60 Z"/></clipPath></defs>
+  <path d="M8 60 L8 28 A24 24 0 0 1 56 28 L56 60 Z" fill="#F2E8CF"/>
+  <g clip-path="url(#o4arcoE)">
+    <circle cx="32" cy="34" r="11" fill="#BC4749"/>
+    <path d="M0 42 L18 26 L30 38 L42 24 L64 42 L64 64 L0 64 Z" fill="#A7C957"/>
+    <path d="M0 64 L0 50 Q32 40 64 50 L64 64 Z" fill="#6A994E"/>
+    <path d="M16 54 L21 40 L26 54 Z M44 56 L50 38 L56 56 Z M36 57 L40 46 L44 57 Z" fill="#386641"/>
+    <path d="M8 59 Q24 53 34 57 T56 55" stroke="#F2E8CF" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+  <path d="M8 60 L8 28 A24 24 0 0 1 56 28 L56 60 Z" fill="none" stroke="#386641" stroke-width="3" stroke-linejoin="round"/>
+</svg>
+<text x="865.0" y="240" text-anchor="middle" font-size="16" font-weight="900" fill="#386641">E · Insignia</text>
+<text x="865.0" y="260" text-anchor="middle" font-size="11" fill="#55665a">Estilo cartel de parque nacional</text>
+<rect x="786" y="280" width="158" height="52" rx="10" fill="#386641"/>
+<svg x="794" y="288" width="36" height="36" viewBox="0 0 64 64">
+  <defs><clipPath id="p4arcoE"><path d="M8 60 L8 28 A24 24 0 0 1 56 28 L56 60 Z"/></clipPath></defs>
+  <path d="M8 60 L8 28 A24 24 0 0 1 56 28 L56 60 Z" fill="#F2E8CF"/>
+  <g clip-path="url(#p4arcoE)">
+    <circle cx="32" cy="34" r="11" fill="#BC4749"/>
+    <path d="M0 42 L18 26 L30 38 L42 24 L64 42 L64 64 L0 64 Z" fill="#A7C957"/>
+    <path d="M0 64 L0 50 Q32 40 64 50 L64 64 Z" fill="#6A994E"/>
+    <path d="M16 54 L21 40 L26 54 Z M44 56 L50 38 L56 56 Z M36 57 L40 46 L44 57 Z" fill="#386641"/>
+    <path d="M8 59 Q24 53 34 57 T56 55" stroke="#F2E8CF" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+  <path d="M8 60 L8 28 A24 24 0 0 1 56 28 L56 60 Z" fill="none" stroke="#386641" stroke-width="3" stroke-linejoin="round"/>
+</svg>
+<text x="836" y="311" font-size="12" fill="#F2E8CF">EcoHarmony</text><text x="836" y="325" font-size="12" font-weight="900" fill="#A7C957">Park</text>
+<text x="865.0" y="352" text-anchor="middle" font-size="10" fill="#55665a">Así se ve en el encabezado</text>
+<svg x="837.0" y="364" width="32" height="32" viewBox="0 0 64 64">
+  <defs><clipPath id="q4arcoE"><path d="M8 60 L8 28 A24 24 0 0 1 56 28 L56 60 Z"/></clipPath></defs>
+  <path d="M8 60 L8 28 A24 24 0 0 1 56 28 L56 60 Z" fill="#F2E8CF"/>
+  <g clip-path="url(#q4arcoE)">
+    <circle cx="32" cy="34" r="11" fill="#BC4749"/>
+    <path d="M0 42 L18 26 L30 38 L42 24 L64 42 L64 64 L0 64 Z" fill="#A7C957"/>
+    <path d="M0 64 L0 50 Q32 40 64 50 L64 64 Z" fill="#6A994E"/>
+    <path d="M16 54 L21 40 L26 54 Z M44 56 L50 38 L56 56 Z M36 57 L40 46 L44 57 Z" fill="#386641"/>
+    <path d="M8 59 Q24 53 34 57 T56 55" stroke="#F2E8CF" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+  <path d="M8 60 L8 28 A24 24 0 0 1 56 28 L56 60 Z" fill="none" stroke="#386641" stroke-width="3" stroke-linejoin="round"/>
+</svg>
+<svg x="877.0" y="372" width="16" height="16" viewBox="0 0 64 64">
+  <defs><clipPath id="r4arcoE"><path d="M8 60 L8 28 A24 24 0 0 1 56 28 L56 60 Z"/></clipPath></defs>
+  <path d="M8 60 L8 28 A24 24 0 0 1 56 28 L56 60 Z" fill="#F2E8CF"/>
+  <g clip-path="url(#r4arcoE)">
+    <circle cx="32" cy="34" r="11" fill="#BC4749"/>
+    <path d="M0 42 L18 26 L30 38 L42 24 L64 42 L64 64 L0 64 Z" fill="#A7C957"/>
+    <path d="M0 64 L0 50 Q32 40 64 50 L64 64 Z" fill="#6A994E"/>
+    <path d="M16 54 L21 40 L26 54 Z M44 56 L50 38 L56 56 Z M36 57 L40 46 L44 57 Z" fill="#386641"/>
+    <path d="M8 59 Q24 53 34 57 T56 55" stroke="#F2E8CF" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+  <path d="M8 60 L8 28 A24 24 0 0 1 56 28 L56 60 Z" fill="none" stroke="#386641" stroke-width="3" stroke-linejoin="round"/>
+</svg>
+<text x="865.0" y="418" text-anchor="middle" font-size="10" fill="#55665a">Ícono y pestaña del navegador</text>
+</svg>

@@ -1,0 +1,14 @@
+# Dependencias (se reinstalan con npm ci)
+node_modules/
+
+# Archivos generados
+dist/
+coverage/
+playwright-report/
+test-results/
+blob-report/
+
+# Credenciales locales de Mercado Pago y Resend: nunca subirlas
+.env
+.env.*
+!.env.example

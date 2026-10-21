@@ -1,0 +1,37 @@
+{
+  "mode": "operate",
+  "fontFamily": "Lato",
+  "colors": {
+    "forest": "#386641",
+    "leaf": "#6a994e",
+    "lime": "#a7c957",
+    "cream": "#f2e8cf",
+    "error": "#bc4749",
+    "text": "#1f2d22",
+    "muted": "#55665a",
+    "background": "#f8f4e8"
+  },
+  "spacing": [
+    4,
+    8,
+    12,
+    16,
+    24,
+    32,
+    48
+  ],
+  "controls": {
+    "height": 48,
+    "compactHeight": 44
+  },
+  "radius": {
+    "control": 8,
+    "surface": 16
+  },
+  "breakpoints": [
+    600,
+    900,
+    1120
+  ],
+  "source": "DESIGN.md"
+}

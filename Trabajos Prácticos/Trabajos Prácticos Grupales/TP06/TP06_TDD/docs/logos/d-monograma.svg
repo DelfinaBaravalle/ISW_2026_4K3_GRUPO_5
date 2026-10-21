@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#386641"/>
+  <text x="31" y="43" text-anchor="middle" font-family="Lato, Helvetica, Arial, sans-serif" font-weight="900" font-size="28" fill="#F2E8CF" letter-spacing="-1">EH</text>
+  <path d="M44 8 C54 10 57 18 52 26 C45 22 42 14 44 8 Z" fill="#A7C957"/>
+  <path d="M44 8 Q49 17 52 26" stroke="#386641" stroke-width="1.2" fill="none"/>
+  <rect x="14" y="49" width="36" height="3" rx="1.5" fill="#BC4749"/>
+</svg>

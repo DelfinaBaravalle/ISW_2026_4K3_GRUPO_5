@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs><clipPath id="arcoE"><path d="M8 60 L8 28 A24 24 0 0 1 56 28 L56 60 Z"/></clipPath></defs>
+  <path d="M8 60 L8 28 A24 24 0 0 1 56 28 L56 60 Z" fill="#F2E8CF"/>
+  <g clip-path="url(#arcoE)">
+    <circle cx="32" cy="34" r="11" fill="#BC4749"/>
+    <path d="M0 42 L18 26 L30 38 L42 24 L64 42 L64 64 L0 64 Z" fill="#A7C957"/>
+    <path d="M0 64 L0 50 Q32 40 64 50 L64 64 Z" fill="#6A994E"/>
+    <path d="M16 54 L21 40 L26 54 Z M44 56 L50 38 L56 56 Z M36 57 L40 46 L44 57 Z" fill="#386641"/>
+    <path d="M8 59 Q24 53 34 57 T56 55" stroke="#F2E8CF" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+  <path d="M8 60 L8 28 A24 24 0 0 1 56 28 L56 60 Z" fill="none" stroke="#386641" stroke-width="3" stroke-linejoin="round"/>
+</svg>
